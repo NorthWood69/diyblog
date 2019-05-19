@@ -2,6 +2,7 @@
 {% block title %}<title>{{ blogger }} - Mini-blog</title>{% endblock %}
 {% block content %}
   <h1>Blogger: {{ blogger }}</h1>
+  <h4>{{ blogger.name.first_name }} {{ blogger.name.last_name }}</h4>
   <h4>Bio</h4><p>{{ blogger.bio }}</p>
   <h4>Blogs list</h4>
   {% if blogger.blog_set.all %}
