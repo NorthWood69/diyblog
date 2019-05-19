@@ -1,0 +1,15 @@
+{% extends "base_generic.html" %}
+{% block title %}<title>Add-comment - Mini-blog</title>{% endblock %}
+{% block content %}
+<h1>Add comment</h1>
+<p>Post your comment for: <a href="{% url 'blog-detail' blog.pk %}">{{blog.title}}</a></p>
+<form action="" method="post">
+    {% csrf_token %}
+    <table>
+    {{ form.as_table }}
+    </table>
+    <input type="submit" class="button blue" value="Submit" />
+      </p>
+    </table>
+</form>
+{% endblock %}

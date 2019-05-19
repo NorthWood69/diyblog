@@ -1,0 +1,11 @@
+{% extends "base_generic.html" %}
+{% block title %}<title>{{ page_title }} - Mini-blog</title>{% endblock %}
+{% block content %}<h1>{{ page_title }}</h1>
+  <p>Мы рады приветствовать Вас на сайте <em>Мини-блог</em>, который демонстрирует основные возможности разработки на основе фреймворка Django и примеров MDN (<em>Mozilla Developer Network</em>).</p>
+<h2>Динамический контент</h2>
+  <p>Статистические данные библиотеки:</p>
+  <ul>
+    <li><strong>Авторов блога:</strong> {{ num_authors }}</li>
+    <li><strong>Тем (постов) блога:</strong> {{ num_blogs }}</li>
+    <li><strong>Всего комментариев:</strong> {{ num_comments }}</li>
+  </ul>{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "base_generic.html" %}
+{% block title %}<title>{{ blog }} - Mini-blog</title>{% endblock %}
+{% block content %}
+  <h1>{{ blog }}</h1>
+  <p><strong>Post date:</strong> {{ blog.post_date }}</p>
+  <p><strong>Author:</strong> {{ blog.author }}</p>
+  <p><strong>Description:</strong></p>
+  <p>{{ blog.description }}</p>
+  <div style="margin-left:20px;margin-top:20px">
+    <h4>Comments</h4>
+    <hr>
+    {% if blog.comment_set.all %}
+    {% for comment in blog.comment_set.all %}
+    <p><strong>{{comment.author}}</strong> (<strong>{{ comment.comment_date }}</strong>) - {{ comment.comment }}</p>
+    <hr>
+    {% endfor %}
+    {% else %}
+    <p>К этой статье пока нет ни одного комментария :( Будьте первым и оставьте комментарий прямо сейчас!</p>
+    {% endif %}
+    {% if user.is_authenticated %}
+    <p><a href="{% url 'blog-comment' blog.id %}">Add new comment</a></p>
+    {% else %}
+    <p><a href="{% url 'login' %}?next={{ request.path }}">Login</a> add new comment</p>
+    {% endif %}
+  </div>
+{% endblock %}

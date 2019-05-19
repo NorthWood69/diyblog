@@ -1,0 +1,16 @@
+{% extends "base_generic.html" %}
+{% block title %}<title>{{ page_title }} - Mini-blog</title>{% endblock %}
+{% block content %}
+    <h1>{{ page_title }}</h1>
+    {% if blog_list %}
+    <ul>
+      {% for blog in blog_list %}
+      <li>
+        <a href="{{ blog.get_absolute_url }}">{{ blog }}</a> ({{blog.post_date}}) - <a class="text_edit" href="">{{blog.author}}</a></li>
+      </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+      <p>К сожалению, на нашем сайте пока нет ни одного поста.</p>
+    {% endif %}
+{% endblock %}
